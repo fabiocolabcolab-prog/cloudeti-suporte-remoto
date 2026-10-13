@@ -358,6 +358,12 @@ jobs:
           echo "::endgroup::"
 
       # ── Step 5: build (Flutter x64) ──
+      - name: Apply custom icon
+        working-directory: rustdesk
+        shell: bash
+        run: |
+         cp ../builder/app_icon.ico ./flutter/windows/runner/resources/app_icon.ico
+
       - name: Build RustDesk
         working-directory: rustdesk
         shell: bash
