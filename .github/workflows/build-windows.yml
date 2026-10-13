@@ -396,7 +396,7 @@ jobs:
         continue-on-error: true
         run: |
           $appNs = "${{ env.CUSTOM_FILENAME }}" -replace '\s','_'
-          Copy-Item "./rustdesk/${{ env.CUSTOM_FILENAME }}.exe" "./rustdesk/$appNs.exe" -ErrorAction SilentlyContinue
+          Copy-Item "./rustdesk/rustdesk.exe" "./rustdesk/$appNs.exe" -Force
           pushd ./res/msi
           python preprocess.py --app-name "$appNs" --arp -d ../../rustdesk
           nuget restore msi.sln
