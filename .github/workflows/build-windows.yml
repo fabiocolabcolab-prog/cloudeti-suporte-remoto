@@ -395,7 +395,7 @@ jobs:
         working-directory: rustdesk
         continue-on-error: true
         run: |
-          $appNs = "${{ env.CUSTOM_FILENAME }}" -replace '\s','_'
+          $appNs = "${{ env.CUSTOM_APPNAME }}"
           Copy-Item "./rustdesk/rustdesk.exe" "./rustdesk/$appNs.exe" -Force
           pushd ./res/msi
           python preprocess.py --app-name "$appNs" --arp -d ../../rustdesk
